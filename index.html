@@ -105,52 +105,98 @@
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
     padding: 24px;
+    touch-action: auto;
+
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
   }
   .scroll-modal-overlay.show {
     opacity: 1;
     visibility: visible;
   }
-  .scroll-modal {
+ .scroll-modal {
+
   background: var(--surface);
+
   border: 1px solid var(--border);
+
   border-radius: var(--radius);
+
   box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.25);
+
   max-width: 480px;
+
   width: 100%;
-  max-height: min(80vh, 700px);
+
+  height: 80vh;
+
+  max-height: 700px;
+
   padding: 48px 32px 32px;
+
   position: relative;
+
   display: flex;
+
   flex-direction: column;
+
   overflow: hidden;
+
   transform: translateY(20px);
+
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.25, 1);
+
 }
-  .scroll-modal-content {
-  overflow-y: auto;
+
+ .scroll-modal-content {
+
+  flex: 1 1 auto;
+
   min-height: 0;
-  flex: 1;
-  padding-right: 10px;
-  overscroll-behavior: contain;
+
+  overflow-y: scroll;
+
+  overflow-x: hidden;
+
   -webkit-overflow-scrolling: touch;
+
+  overscroll-behavior: contain;
+
+  touch-action: pan-y;
+
+  padding-right: 10px;
+
   scrollbar-width: thin;
+
   scrollbar-color: var(--accent) transparent;
+
 }
 
 .scroll-modal-content::-webkit-scrollbar {
-  width: 4px;
+
+  width: 5px;
+
 }
 
 .scroll-modal-content::-webkit-scrollbar-thumb {
+
   background: var(--accent);
+
   border-radius: 10px;
+
 }
 
 .scroll-modal-content p {
+
   color: var(--muted);
+
   margin: 0;
+
   line-height: 1.8;
+
   white-space: pre-line;
+
 }
   .scroll-modal-overlay.show .scroll-modal {
     transform: translateY(0);
